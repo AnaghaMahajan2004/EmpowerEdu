@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Your Account - EmpowerEdu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #675305;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .verify-container {
+            background-color: #333;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
+        .verify-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .verify-container button {
+            background-color: #dfc637;
+            color: #333;
+            font-size: 18px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="verify-container">
+        <h2>Verify Your Email</h2>
+        <form action="verify_process.php" method="POST">
+          <!-- Input fields for OTP verification -->
+          <input type="text" name="otp" placeholder="Enter OTP" required>
+          
+          <!-- Button to verify email OTP -->
+          <button type="submit" name="verify_type" value="email">Verify Email</button>
+        </form>
+      </div>
+
+</body>
+</html>

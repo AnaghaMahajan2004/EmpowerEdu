@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - EmpowerEdu</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-image: url("signupbg.jpg");
+        background-size: cover;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .signup-container {
+        background-color: #8d710d;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 300px;
+        text-align: center;
+      }
+
+      .signup-container input::placeholder {
+        color: #394002;
+      }
+
+      .signup-container input[type="text"],
+      .signup-container input[type="email"],
+      .signup-container input[type="tel"],
+      .signup-container input[type="password"] {
+        width: 90%;
+        padding: 10px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        background-color: #e5d15d;
+      }
+
+      .signup-container button {
+        background-color: #e3c413;
+        color: #000481;
+        font-size: 22px;
+        font-weight: bold;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      .signup-container button:hover {
+        background-color: #a89537;
+      }
+
+      .signup-container a,
+      p {
+        color: #000481;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      .signup-container a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="signup-container">
+      <img src="signup.gif" alt="Sign Up GIF" width="200" />
+      <form action="signup.php" method="POST">
+        <input type="text" name="fullname" placeholder="Full Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="tel" name="mobile" placeholder="Mobile" required />
+        <!-- <input type="text" name="username" placeholder="Username" required /> -->
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <!-- Add the name attribute to the submit button -->
+        <button type="submit" name="submit">𝑺𝒊𝒈𝒏 𝑼𝒑</button>
+      </form>
+      <p>Already have an account? <a href="Login.html">Log in</a></p>
+    </div>
+  </body>
+</html>

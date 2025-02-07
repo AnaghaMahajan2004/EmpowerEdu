@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Courses - EmpowerEdu</title>
+  <style>
+    /* Reset and general styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #8d7b23;
+      background-image: url("coursesbg.png");
+      color: #333;
+      padding-top: 50px;
+    }
+
+    /* Header styles */
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #d0bb02;
+        color: white;
+        padding-left: 0;
+        padding-right: 10px;
+        padding-bottom: 0;
+        width: 100%;
+        height: 60px;
+        position: fixed; /* Fixed position */
+        top: 0; /* Stick to the top */
+        z-index: 1000;
+      }
+
+      header nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      .logo {
+        display: flex;
+  align-items: center;
+  margin-right: 20px;
+      }
+
+      .logo img {
+        height: 65px;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        /* gap: 10px; */
+        margin: 0;
+        flex-grow: 1;
+        align-items: center;
+      }
+
+      .nav-links li {
+  flex: 1; /* Ensures equal spacing between links */
+  text-align: center; /* Center aligns each link in its space */
+  width: 100%;
+  line-height: 60px; /* Adjust line height to match the height of the header */
+  height: 60px;
+}
+
+      .nav-links a {
+        color: rgb(20, 9, 103);
+        text-decoration: none;
+        font-size: 25px;
+        font-weight: bold;
+        transition: color 0.3s;
+        display: block; /* Make the anchor tag block-level to fill the li and allow centering */
+  height: 100%; /* Ensure the anchor fills the li vertically */
+  line-height: 60px;
+      }
+
+      .nav-links a:hover {
+        color: rgb(7, 47, 155);
+      }
+
+      .btn {
+        background: #dfc637;
+        border-radius: 4px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        height: 100%; /* Ensure button fills the li element vertically */
+  line-height: 60px; /* Center text vertically inside the button */
+  display: inline-flex; /* Align the button properly */
+  justify-content: center; /* Center text horizontally */
+  align-items: center; /* Center text vertically */
+  /* margin-left: 20px; */
+      }
+
+    .topics-container {
+      background-color: #482f0b;
+      /* Background color of the box */
+      padding-top: 0;
+      padding-bottom: 20px;
+      border-radius: 15px;
+      /* Rounded corners */
+      width: 95%;
+      /* Make sure the container spans the full width */
+      margin: 30px auto;
+      /* Centers the box on the page */
+    }
+
+    .topics {
+      display: flex;
+      flex-wrap: wrap;
+      /* Allows topics to wrap onto the next line if needed */
+      gap: 20px;
+      padding-top: 30px;
+      padding-left: 10px;
+      padding-right: 20px;
+      justify-content: center;
+    }
+
+    .topic {
+      font-size: 18px;
+      font-weight: bold;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      color: #ffffff;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .topic:hover {
+      text-decoration: underline;
+    }
+
+    /* Main content styles */
+    .section {
+      margin: 40px 0;
+    }
+
+    .section-title-1 {
+      width: 600px;
+      /* Ensure the image fills the container */
+      height: auto;
+      /* Maintain the aspect ratio */
+      display: block;
+      margin: 0 auto;
+    }
+
+    .section-title-2 {
+      width: 450px;
+      /* Ensure the image fills the container */
+      height: auto;
+      /* Maintain the aspect ratio */
+      display: block;
+      margin: 0 auto;
+    }
+
+    .section-title-3 {
+      width: 400px;
+      /* Ensure the image fills the container */
+      height: auto;
+      /* Maintain the aspect ratio */
+      display: block;
+      margin: 0 auto;
+    }
+
+    .course-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 20px auto;
+      width: 100%;
+    }
+
+    .course-card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: 400px;
+      height: 450px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .course-card:hover {
+      transform: scale(1.05);
+    }
+
+    .course-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .course-card h2 {
+      font-size: 20px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .course-card p {
+      padding: 0 10px 10px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .enroll-button {
+      background-color: #dfc637;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+    }
+
+    .enroll-button:hover {
+      background-color: #c2a92e;
+    }
+
+    
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="Logo.gif" alt="EmpowerEdu Logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="HomePage.html">ʜᴏᴍᴇ</a></li>
+        <li><a href="courses.html">ᴄᴏᴜʀꜱᴇꜱ</a></li>
+        <li><a href="pricing.html">ᴘʀɪᴄɪɴɢ</a></li>
+        <li><a href="about.html">ᴀʙᴏᴜᴛ ᴜꜱ</a></li>
+        <li><a href="#contact">ᴄᴏɴᴛᴀᴄᴛ</a></li>
+        <li><a href="Login.html" class="btn">ʟᴏɢɪɴ / ꜱɪɢɴᴜᴘ</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="topics-container">
+    <div class="topics">
+      <a href="#web-development" class="topic">◆ Web Development</a>
+      <a href="#data-science" class="topic">◆ Data Science</a>
+      <a href="#business" class="topic">◆ Business</a>
+      <a href="#cybersecurity" class="topic">◆ Cybersecurity & Ethical Hacking</a>
+      <a href="#blockchain" class="topic">◆ Blockchain & Cryptocurrency</a>
+      <a href="#iot" class="topic">◆ Internet of Things (IoT)</a>
+      <a href="#graphic-design" class="topic">◆ Graphic Design & Digital Art</a>
+      <a href="#photography" class="topic">◆ Photography & Videography</a>
+      <a href="#language-learning" class="topic">◆ Language Learning & Linguistics</a>
+      <a href="#health-wellness" class="topic">◆ Health & Wellness</a>
+      <a href="#music" class="topic">◆ Music Production & Theory</a>
+      <a href="#psychology" class="topic">◆ Psychology & Human Behavior</a>
+      <a href="#finance" class="topic">◆ Personal Finance & Investing</a>
+      <a href="#engineering" class="topic">◆ Engineering & Robotics</a>
+      <a href="#creative-writing" class="topic">◆ Creative Writing & Literature</a>
+      <a href="#history" class="topic">◆ History & World Cultures</a>
+      <a href="#environmental-science" class="topic">◆ Environmental Science & Sustainability</a>
+      <a href="#mathematics" class="topic">◆ Mathematics & Statistics</a>
+      <a href="#mobile-app" class="topic">◆ Mobile App Development</a>
+      <a href="#game-development" class="topic">◆ Game Development & Animation</a>
+    </div>
+  </div>
+
+  <main>
+
+    <div class="section" id="web-development">
+      <img src="webdev.gif" class="section-title-1" />
+      <div class="course-container">
+
+        <div class="course-card">
+          <img src="webdev1.webp" alt="Course 1" />
+          <h2>𝓜𝓪𝓼𝓽𝓮𝓻𝓲𝓷𝓰 𝓕𝓾𝓵𝓵-𝓢𝓽𝓪𝓬𝓴 𝓓𝓮𝓿𝓮𝓵𝓸𝓹𝓶𝓮𝓷𝓽</h2>
+          <p>
+            𝑳𝒆𝒂𝒓𝒏 𝒕𝒐 𝒃𝒖𝒊𝒍𝒅 𝒄𝒐𝒎𝒑𝒍𝒆𝒕𝒆 𝒘𝒆𝒃 𝒂𝒑𝒑𝒍𝒊𝒄𝒂𝒕𝒊𝒐𝒏𝒔 𝒇𝒓𝒐𝒎 𝒇𝒓𝒐𝒏𝒕 𝒕𝒐
+            𝒃𝒂𝒄𝒌 𝒘𝒊𝒕𝒉 𝒕𝒉𝒊𝒔 𝒄𝒐𝒎𝒑𝒓𝒆𝒉𝒆𝒏𝒔𝒊𝒗𝒆 𝒄𝒐𝒖𝒓𝒔𝒆 𝒄𝒐𝒗𝒆𝒓𝒊𝒏𝒈 𝒃𝒐𝒕𝒉 𝒄𝒍𝒊𝒆𝒏𝒕-𝒔𝒊𝒅𝒆 𝒂𝒏𝒅
+            𝒔𝒆𝒓𝒗𝒆𝒓-𝒔𝒊𝒅𝒆 𝒅𝒆𝒗𝒆𝒍𝒐𝒑𝒎𝒆𝒏𝒕. 𝑻𝒂𝒖𝒈𝒉𝒕 𝒃𝒚 𝑱𝒐𝒉𝒏 𝑫𝒐𝒆, 𝒕𝒉𝒊𝒔 𝒄𝒐𝒖𝒓𝒔𝒆
+            𝒊𝒏𝒄𝒍𝒖𝒅𝒆𝒔
+            𝒍𝒊𝒗𝒆 𝒐𝒏𝒍𝒊𝒏𝒆 𝒍𝒆𝒄𝒕𝒖𝒓𝒆𝒔 𝒂𝒏𝒅 𝒉𝒂𝒏𝒅𝒔-𝒐𝒏 𝒑𝒓𝒐𝒋𝒆𝒄𝒕𝒔 𝒕𝒐 𝒅𝒆𝒗𝒆𝒍𝒐𝒑 𝒚𝒐𝒖𝒓
+            𝒔𝒌𝒊𝒍𝒍𝒔.
+          </p>
+          <a href="webdevcourse1.html">
+            <button class="enroll-button" id="enroll-button-1">Enroll Now</button>
+          </a>
+          
+        </div>
+
+
+        <div class="course-card">
+          <img src="webdev2.webp" alt="Course 2" />
+          <h2>𝓕𝓻𝓸𝓷𝓽-𝓔𝓷𝓭 𝓕𝓾𝓷𝓭𝓪𝓶𝓮𝓷𝓽𝓪𝓵𝓼: 𝓗𝓣𝓜𝓛, 𝓒𝓢𝓢 & 𝓙𝓪𝓿𝓪𝓢𝓬𝓻𝓲𝓹𝓽</h2>
+          <p>
+            𝑻𝒉𝒊𝒔 𝒔𝒆𝒍𝒇-𝒑𝒂𝒄𝒆𝒅 𝒄𝒐𝒖𝒓𝒔𝒆 𝒘𝒊𝒍𝒍 𝒊𝒏𝒕𝒓𝒐𝒅𝒖𝒄𝒆 𝒚𝒐𝒖 𝒕𝒐 𝒕𝒉𝒆
+            𝒇𝒐𝒖𝒏𝒅𝒂𝒕𝒊𝒐𝒏𝒂𝒍
+            𝒔𝒌𝒊𝒍𝒍𝒔 𝒐𝒇 𝒘𝒆𝒃 𝒅𝒆𝒗𝒆𝒍𝒐𝒑𝒎𝒆𝒏𝒕, 𝒇𝒐𝒄𝒖𝒔𝒊𝒏𝒈 𝒐𝒏 𝑯𝑻𝑴𝑳, 𝑪𝑺𝑺, 𝒂𝒏𝒅
+            𝑱𝒂𝒗𝒂𝑺𝒄𝒓𝒊𝒑𝒕
+            𝒕𝒐 𝒄𝒓𝒆𝒂𝒕𝒆 𝒆𝒏𝒈𝒂𝒈𝒊𝒏𝒈 𝒖𝒔𝒆𝒓 𝒊𝒏𝒕𝒆𝒓𝒇𝒂𝒄𝒆𝒔. 𝑻𝒂𝒖𝒈𝒉𝒕 𝒃𝒚 𝑱𝒂𝒏𝒆 𝑺𝒎𝒊𝒕𝒉,
+            𝒊𝒕’𝒔
+            𝒆𝒏𝒕𝒊𝒓𝒆𝒍𝒚 𝒕𝒉𝒆𝒐𝒓𝒚-𝒃𝒂𝒔𝒆𝒅, 𝒑𝒆𝒓𝒇𝒆𝒄𝒕 𝒇𝒐𝒓 𝒃𝒆𝒈𝒊𝒏𝒏𝒆𝒓𝒔.
+          </p>
+          <a href="webdevcourse2.php">
+            <button class="enroll-button" id="enroll-button-2">Enroll Now</button>
+          </a>
+        </div>
+        <div class="course-card">
+          <img src="webdev3.jpg" alt="Course 3" />
+          <h2>𝓐𝓭𝓿𝓪𝓷𝓬𝓮𝓭 𝓙𝓪𝓿𝓪𝓢𝓬𝓻𝓲𝓹𝓽 𝓣𝓮𝓬𝓱𝓷𝓲𝓺𝓾𝓮𝓼</h2>
+          <p>
+            𝑫𝒊𝒗𝒆 𝒅𝒆𝒆𝒑 𝒊𝒏𝒕𝒐 𝒕𝒉𝒆 𝒊𝒏𝒕𝒓𝒊𝒄𝒂𝒄𝒊𝒆𝒔 𝒐𝒇 𝑱𝒂𝒗𝒂𝑺𝒄𝒓𝒊𝒑𝒕 𝒘𝒊𝒕𝒉 𝒂𝒅𝒗𝒂𝒏𝒄𝒆𝒅
+            𝒕𝒐𝒑𝒊𝒄𝒔
+            𝒍𝒊𝒌𝒆 𝒄𝒍𝒐𝒔𝒖𝒓𝒆𝒔, 𝒑𝒓𝒐𝒎𝒊𝒔𝒆𝒔, 𝒂𝒏𝒅 𝒂𝒔𝒚𝒏𝒄𝒉𝒓𝒐𝒏𝒐𝒖𝒔 𝒑𝒓𝒐𝒈𝒓𝒂𝒎𝒎𝒊𝒏𝒈.
+            𝑻𝒂𝒖𝒈𝒉𝒕 𝒃𝒚
+            𝑴𝒊𝒄𝒉𝒂𝒆𝒍 𝑩𝒓𝒐𝒘𝒏, 𝒕𝒉𝒊𝒔 𝒄𝒐𝒖𝒓𝒔𝒆 𝒇𝒆𝒂𝒕𝒖𝒓𝒆𝒔 𝒍𝒊𝒗𝒆 𝒔𝒆𝒔𝒔𝒊𝒐𝒏𝒔 𝒇𝒐𝒓
+            𝒊𝒏𝒕𝒆𝒓𝒂𝒄𝒕𝒊𝒗𝒆
+            𝒍𝒆𝒂𝒓𝒏𝒊𝒏𝒈 𝒂𝒏𝒅 𝒑𝒓𝒐𝒃𝒍𝒆𝒎-𝒔𝒐𝒍𝒗𝒊𝒏𝒈.
+          </p>
+          <button class="enroll-button" id="enroll-button-3">Enroll Now</button>
+        </div>
+        <div class="course-card">
+          <img src="webdev4.jpeg" alt="Course 4" />
+          <h2>𝓑𝓾𝓲𝓵𝓭𝓲𝓷𝓰 𝓓𝔂𝓷𝓪𝓶𝓲𝓬 𝓦𝓮𝓫𝓼𝓲𝓽𝓮𝓼 𝔀𝓲𝓽𝓱 𝓡𝓮𝓪𝓬𝓽</h2>
+          <p>
+            𝑴𝒂𝒔𝒕𝒆𝒓 𝒕𝒉𝒆 𝑹𝒆𝒂𝒄𝒕 𝒇𝒓𝒂𝒎𝒆𝒘𝒐𝒓𝒌 𝒂𝒏𝒅 𝒃𝒖𝒊𝒍𝒅 𝒅𝒚𝒏𝒂𝒎𝒊𝒄, 𝒊𝒏𝒕𝒆𝒓𝒂𝒄𝒕𝒊𝒗𝒆
+            𝒖𝒔𝒆𝒓
+            𝒊𝒏𝒕𝒆𝒓𝒇𝒂𝒄𝒆𝒔 𝒇𝒐𝒓 𝒎𝒐𝒅𝒆𝒓𝒏 𝒘𝒆𝒃 𝒂𝒑𝒑𝒍𝒊𝒄𝒂𝒕𝒊𝒐𝒏𝒔. 𝑺𝒂𝒓𝒂𝒉 𝑱𝒐𝒉𝒏𝒔𝒐𝒏 𝒘𝒊𝒍𝒍
+            𝒈𝒖𝒊𝒅𝒆
+            𝒚𝒐𝒖 𝒕𝒉𝒓𝒐𝒖𝒈𝒉 𝒍𝒊𝒗𝒆 𝒐𝒏𝒍𝒊𝒏𝒆 𝒔𝒆𝒔𝒔𝒊𝒐𝒏𝒔, 𝒑𝒓𝒐𝒗𝒊𝒅𝒊𝒏𝒈 𝒓𝒆𝒂𝒍-𝒕𝒊𝒎𝒆
+            𝒇𝒆𝒆𝒅𝒃𝒂𝒄𝒌 𝒂𝒏𝒅
+            𝒄𝒐𝒅𝒆 𝒓𝒆𝒗𝒊𝒆𝒘𝒔.
+          </p>
+          <button class="enroll-button" id="enroll-button-4">Enroll Now</button>
+        </div>
+        <div class="course-card">
+          <img src="webdev5.jpg" alt="Course 5" />
+          <h2>𝓝𝓸𝓭𝓮.𝓳𝓼 𝓯𝓸𝓻 𝓑𝓪𝓬𝓴𝓮𝓷𝓭 𝓓𝓮𝓿𝓮𝓵𝓸𝓹𝓶𝓮𝓷𝓽</h2>
+          <p>
+            𝑼𝒏𝒍𝒐𝒄𝒌 𝒕𝒉𝒆 𝒑𝒐𝒘𝒆𝒓 𝒐𝒇 𝑵𝒐𝒅𝒆.𝒋𝒔 𝒕𝒐 𝒃𝒖𝒊𝒍𝒅 𝒇𝒂𝒔𝒕, 𝒔𝒄𝒂𝒍𝒂𝒃𝒍𝒆
+            𝒔𝒆𝒓𝒗𝒆𝒓-𝒔𝒊𝒅𝒆
+            𝒂𝒑𝒑𝒍𝒊𝒄𝒂𝒕𝒊𝒐𝒏𝒔. 𝑻𝒂𝒖𝒈𝒉𝒕 𝒃𝒚 𝑫𝒂𝒗𝒊𝒅 𝑳𝒆𝒆, 𝒕𝒉𝒊𝒔 𝒔𝒆𝒍𝒇-𝒑𝒂𝒄𝒆𝒅 𝒄𝒐𝒖𝒓𝒔𝒆
+            𝒐𝒇𝒇𝒆𝒓𝒔
+            𝒕𝒉𝒆𝒐𝒓𝒚-𝒇𝒐𝒄𝒖𝒔𝒆𝒅 𝒍𝒆𝒔𝒔𝒐𝒏𝒔 𝒕𝒉𝒂𝒕 𝒈𝒊𝒗𝒆 𝒚𝒐𝒖 𝒂 𝒔𝒐𝒍𝒊𝒅 𝒖𝒏𝒅𝒆𝒓𝒔𝒕𝒂𝒏𝒅𝒊𝒏𝒈
+            𝒐𝒇
+            𝒃𝒂𝒄𝒌𝒆𝒏𝒅 𝒑𝒓𝒐𝒈𝒓𝒂𝒎𝒎𝒊𝒏𝒈.
+          </p>
+          <button class="enroll-button" id="enroll-button-5">Enroll Now</button>
+        </div>
+        <div class="course-card">
+          <img src="webdev6.jpeg" alt="Course 6" />
+          <h2>𝓡𝓮𝓼𝓹𝓸𝓷𝓼𝓲𝓿𝓮 𝓦𝓮𝓫 𝓓𝓮𝓼𝓲𝓰𝓷 𝔀𝓲𝓽𝓱 𝓕𝓵𝓮𝔁𝓫𝓸𝔁 𝓪𝓷𝓭 𝓖𝓻𝓲𝓭</h2>
+          <p>
+            𝑳𝒆𝒂𝒓𝒏 𝒉𝒐𝒘 𝒕𝒐 𝒅𝒆𝒔𝒊𝒈𝒏 𝒇𝒍𝒆𝒙𝒊𝒃𝒍𝒆 𝒂𝒏𝒅 𝒓𝒆𝒔𝒑𝒐𝒏𝒔𝒊𝒗𝒆 𝒍𝒂𝒚𝒐𝒖𝒕𝒔 𝒖𝒔𝒊𝒏𝒈
+            𝑭𝒍𝒆𝒙𝒃𝒐𝒙
+            𝒂𝒏𝒅 𝑪𝑺𝑺 𝑮𝒓𝒊𝒅 𝒕𝒐 𝒆𝒏𝒔𝒖𝒓𝒆 𝒚𝒐𝒖𝒓 𝒘𝒆𝒃𝒔𝒊𝒕𝒆𝒔 𝒘𝒐𝒓𝒌 𝒔𝒆𝒂𝒎𝒍𝒆𝒔𝒔𝒍𝒚
+            𝒂𝒄𝒓𝒐𝒔𝒔 𝒂𝒍𝒍
+            𝒅𝒆𝒗𝒊𝒄𝒆𝒔. 𝑬𝒎𝒊𝒍𝒚 𝑾𝒉𝒊𝒕𝒆 𝒕𝒆𝒂𝒄𝒉𝒆𝒔 𝒕𝒉𝒊𝒔 𝒄𝒐𝒖𝒓𝒔𝒆 𝒕𝒉𝒓𝒐𝒖𝒈𝒉
+            𝒔𝒆𝒍𝒇-𝒑𝒂𝒄𝒆𝒅
+            𝒍𝒆𝒔𝒔𝒐𝒏𝒔 𝒂𝒏𝒅 𝒑𝒓𝒂𝒄𝒕𝒊𝒄𝒂𝒍 𝒆𝒙𝒂𝒎𝒑𝒍𝒆𝒔.
+          </p>
+          <button class="enroll-button" id="enroll-button-6">Enroll Now</button>
+        </div>
+        <div class="course-card">
+          <img src="webdev7.webp" alt="Course 7" />
+          <h2>𝓦𝓮𝓫 𝓐𝓬𝓬𝓮𝓼𝓼𝓲𝓫𝓲𝓵𝓲𝓽𝔂: 𝓓𝓮𝓼𝓲𝓰𝓷𝓲𝓷𝓰 𝓯𝓸𝓻 𝓐𝓵𝓵 𝓤𝓼𝓮𝓻𝓼</h2>
+          <p>
+            𝑻𝒉𝒊𝒔 𝒄𝒐𝒖𝒓𝒔𝒆 𝒄𝒐𝒗𝒆𝒓𝒔 𝒆𝒔𝒔𝒆𝒏𝒕𝒊𝒂𝒍 𝒘𝒆𝒃 𝒂𝒄𝒄𝒆𝒔𝒔𝒊𝒃𝒊𝒍𝒊𝒕𝒚 𝒔𝒕𝒂𝒏𝒅𝒂𝒓𝒅𝒔,
+            𝒆𝒏𝒂𝒃𝒍𝒊𝒏𝒈
+            𝒚𝒐𝒖 𝒕𝒐 𝒃𝒖𝒊𝒍𝒅 𝒘𝒆𝒃𝒔𝒊𝒕𝒆𝒔 𝒕𝒉𝒂𝒕 𝒂𝒓𝒆 𝒖𝒔𝒂𝒃𝒍𝒆 𝒇𝒐𝒓 𝒆𝒗𝒆𝒓𝒚𝒐𝒏𝒆,
+            𝒊𝒏𝒄𝒍𝒖𝒅𝒊𝒏𝒈
+            𝒑𝒆𝒐𝒑𝒍𝒆 𝒘𝒊𝒕𝒉 𝒅𝒊𝒔𝒂𝒃𝒊𝒍𝒊𝒕𝒊𝒆𝒔. 𝑻𝒂𝒖𝒈𝒉𝒕 𝒃𝒚 𝑱𝒆𝒔𝒔𝒊𝒄𝒂 𝑻𝒂𝒚𝒍𝒐𝒓, 𝒊𝒕 𝒊𝒔
+            𝒔𝒆𝒍𝒇-𝒑𝒂𝒄𝒆𝒅 𝒘𝒊𝒕𝒉 𝒅𝒆𝒕𝒂𝒊𝒍𝒆𝒅 𝒕𝒉𝒆𝒐𝒓𝒆𝒕𝒊𝒄𝒂𝒍 𝒎𝒐𝒅𝒖𝒍𝒆𝒔.
+          </p>
+          <button class="enroll-button" id="enroll-button-7">Enroll Now</button>
+        </div>
+        <div class="course-card">
+          <img src="webdev8.png" alt="Course 8" />
+          <h2>𝓜𝓸𝓭𝓮𝓻𝓷 𝓦𝓮𝓫 𝓐𝓟𝓘𝓼: 𝓘𝓷𝓽𝓮𝓰𝓻𝓪𝓽𝓲𝓷𝓰 𝓡𝓮𝓪𝓵-𝓣𝓲𝓶𝓮 𝓓𝓪𝓽𝓪</h2>
+          <p>
+            𝑬𝒙𝒑𝒍𝒐𝒓𝒆 𝒎𝒐𝒅𝒆𝒓𝒏 𝒘𝒆𝒃 𝑨𝑷𝑰𝒔 𝒔𝒖𝒄𝒉 𝒂𝒔 𝑹𝑬𝑺𝑻, 𝑮𝒓𝒂𝒑𝒉𝑸𝑳, 𝒂𝒏𝒅
+            𝑾𝒆𝒃𝑺𝒐𝒄𝒌𝒆𝒕𝒔 𝒕𝒐
+            𝒊𝒏𝒕𝒆𝒈𝒓𝒂𝒕𝒆 𝒓𝒆𝒂𝒍-𝒕𝒊𝒎𝒆 𝒅𝒂𝒕𝒂 𝒊𝒏𝒕𝒐 𝒚𝒐𝒖𝒓 𝒂𝒑𝒑𝒍𝒊𝒄𝒂𝒕𝒊𝒐𝒏𝒔. 𝑪𝒉𝒓𝒊𝒔
+            𝑩𝒍𝒂𝒄𝒌 𝒘𝒊𝒍𝒍
+            𝒈𝒖𝒊𝒅𝒆 𝒚𝒐𝒖 𝒕𝒉𝒓𝒐𝒖𝒈𝒉 𝒍𝒊𝒗𝒆 𝒍𝒆𝒄𝒕𝒖𝒓𝒆𝒔 𝒂𝒏𝒅 𝒉𝒂𝒏𝒅𝒔-𝒐𝒏 𝒆𝒙𝒂𝒎𝒑𝒍𝒆𝒔 𝒕𝒐
+            𝒆𝒏𝒔𝒖𝒓𝒆
+            𝒚𝒐𝒖 𝒈𝒂𝒊𝒏 𝒑𝒓𝒂𝒄𝒕𝒊𝒄𝒂𝒍 𝒆𝒙𝒑𝒆𝒓𝒊𝒆𝒏𝒄𝒆.
+          </p>
+          <button class="enroll-button" id="enroll-button-8">Enroll Now</button>
+        </div>
+        <div class="course-card">
+          <img src="webdev9.webp" alt="Course 9" />
+          <h2>𝓑𝓾𝓲𝓵𝓭𝓲𝓷𝓰 𝓢𝓮𝓬𝓾𝓻𝓮 𝓦𝓮𝓫 𝓐𝓹𝓹𝓵𝓲𝓬𝓪𝓽𝓲𝓸𝓷𝓼</h2>
+          <p>
+            𝑳𝒆𝒂𝒓𝒏 𝒕𝒉𝒆 𝒃𝒆𝒔𝒕 𝒑𝒓𝒂𝒄𝒕𝒊𝒄𝒆𝒔 𝒇𝒐𝒓 𝒔𝒆𝒄𝒖𝒓𝒊𝒏𝒈 𝒚𝒐𝒖𝒓 𝒘𝒆𝒃
+            𝒂𝒑𝒑𝒍𝒊𝒄𝒂𝒕𝒊𝒐𝒏𝒔 𝒇𝒓𝒐𝒎
+            𝒑𝒐𝒕𝒆𝒏𝒕𝒊𝒂𝒍 𝒗𝒖𝒍𝒏𝒆𝒓𝒂𝒃𝒊𝒍𝒊𝒕𝒊𝒆𝒔 𝒂𝒏𝒅 𝒂𝒕𝒕𝒂𝒄𝒌𝒔, 𝒊𝒏𝒄𝒍𝒖𝒅𝒊𝒏𝒈 𝒕𝒐𝒑𝒊𝒄𝒔
+            𝒍𝒊𝒌𝒆
+            𝒂𝒖𝒕𝒉𝒆𝒏𝒕𝒊𝒄𝒂𝒕𝒊𝒐𝒏, 𝒅𝒂𝒕𝒂 𝒑𝒓𝒐𝒕𝒆𝒄𝒕𝒊𝒐𝒏, 𝒂𝒏𝒅 𝒆𝒏𝒄𝒓𝒚𝒑𝒕𝒊𝒐𝒏. 𝑻𝒂𝒖𝒈𝒉𝒕 𝒃𝒚
+            𝑳𝒊𝒔𝒂
+            𝑮𝒓𝒆𝒆𝒏, 𝒕𝒉𝒊𝒔 𝒄𝒐𝒖𝒓𝒔𝒆 𝒊𝒔 𝒔𝒆𝒍𝒇-𝒑𝒂𝒄𝒆𝒅 𝒂𝒏𝒅 𝒇𝒐𝒄𝒖𝒔𝒆𝒔 𝒐𝒏 𝒕𝒉𝒆𝒐𝒓𝒆𝒕𝒊𝒄𝒂𝒍
+            𝒖𝒏𝒅𝒆𝒓𝒔𝒕𝒂𝒏𝒅𝒊𝒏𝒈, 𝒘𝒊𝒕𝒉 𝒐𝒑𝒕𝒊𝒐𝒏𝒂𝒍 𝒍𝒊𝒗𝒆 𝑸&𝑨 𝒔𝒆𝒔𝒔𝒊𝒐𝒏𝒔.
+          </p>
+          <button class="enroll-button" id="enroll-button-9">Enroll Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data Science Section -->
+    <div class="section" id="data-science">
+      <img src="ds.gif" class="section-title-2" />
+      <div class="course-container">
+        <!-- Courses for Data Science -->
+        <div class="course-card">
+          <img src="ds1.jpg" alt="Course 1" />
+          <h2>𝓘𝓷𝓽𝓻𝓸𝓭𝓾𝓬𝓽𝓲𝓸𝓷 𝓽𝓸 𝓓𝓪𝓽𝓪 𝓢𝓬𝓲𝓮𝓷𝓬𝓮 𝔀𝓲𝓽𝓱 𝓟𝔂𝓽𝓱𝓸𝓷</h2>
+          <p>
+            𝑳𝒆𝒂𝒓𝒏 𝒕𝒉𝒆 𝒃𝒂𝒔𝒊𝒄𝒔 𝒐𝒇 𝒅𝒂𝒕𝒂 𝒔𝒄𝒊𝒆𝒏𝒄𝒆 𝒂𝒏𝒅 𝒉𝒐𝒘 𝒕𝒐 𝒖𝒔𝒆 𝑷𝒚𝒕𝒉𝒐𝒏 𝒇𝒐𝒓
+            𝒅𝒂𝒕𝒂
+            𝒂𝒏𝒂𝒍𝒚𝒔𝒊𝒔, 𝒗𝒊𝒔𝒖𝒂𝒍𝒊𝒛𝒂𝒕𝒊𝒐𝒏, 𝒂𝒏𝒅 𝒎𝒂𝒄𝒉𝒊𝒏𝒆 𝒍𝒆𝒂𝒓𝒏𝒊𝒏𝒈. 𝑻𝒂𝒖𝒈𝒉𝒕 𝒃𝒚
+            𝑨𝒏𝒏𝒂
+            𝑷𝒂𝒕𝒆𝒍, 𝒕𝒉𝒊𝒔 𝒊𝒔 𝒂 𝒔𝒆𝒍𝒇-𝒑𝒂𝒄𝒆𝒅 𝒄𝒐𝒖𝒓𝒔𝒆 𝒘𝒊𝒕𝒉 𝒄𝒐𝒎𝒑𝒓𝒆𝒉𝒆𝒏𝒔𝒊𝒗𝒆
+            𝒕𝒉𝒆𝒐𝒓𝒚-𝒃𝒂𝒔𝒆𝒅
+            𝒎𝒐𝒅𝒖𝒍𝒆𝒔 𝒂𝒏𝒅 𝒑𝒓𝒂𝒄𝒕𝒊𝒄𝒂𝒍 𝒄𝒐𝒅𝒊𝒏𝒈 𝒆𝒙𝒆𝒓𝒄𝒊𝒔𝒆𝒔.
+          </p>
+          <button class="enroll-button" id="enroll-button-10">Enroll Now</button>
+        </div>
+        <div class="course-card">
+          <img src="ds2.jpeg" alt="Course 2" />
+          <h2>𝓓𝓪𝓽𝓪 𝓦𝓻𝓪𝓷𝓰𝓵𝓲𝓷𝓰 𝓪𝓷𝓭 𝓒𝓵𝓮𝓪𝓷𝓲𝓷𝓰 𝓣𝓮𝓬𝓱𝓷𝓲𝓺𝓾𝓮𝓼</h2>
+          <p>
+            𝑴𝒂𝒔𝒕𝒆𝒓 𝒕𝒉𝒆 𝒆𝒔𝒔𝒆𝒏𝒕𝒊𝒂𝒍 𝒔𝒌𝒊𝒍𝒍 𝒐𝒇 𝒅𝒂𝒕𝒂 𝒘𝒓𝒂𝒏𝒈𝒍𝒊𝒏𝒈 𝒃𝒚 𝒄𝒍𝒆𝒂𝒏𝒊𝒏𝒈
+            𝒂𝒏𝒅
+            𝒑𝒓𝒆𝒑𝒂𝒓𝒊𝒏𝒈 𝒓𝒂𝒘 𝒅𝒂𝒕𝒂 𝒇𝒐𝒓 𝒂𝒏𝒂𝒍𝒚𝒔𝒊𝒔 𝒖𝒔𝒊𝒏𝒈 𝑷𝒚𝒕𝒉𝒐𝒏 𝒂𝒏𝒅 𝒍𝒊𝒃𝒓𝒂𝒓𝒊𝒆𝒔
+            𝒍𝒊𝒌𝒆
+            𝑷𝒂𝒏𝒅𝒂𝒔. 𝑹𝒂𝒋𝒆𝒔𝒉 𝑲𝒖𝒎𝒂𝒓 𝒍𝒆𝒂𝒅𝒔 𝒕𝒉𝒊𝒔 𝒍𝒊𝒗𝒆, 𝒊𝒏𝒕𝒆𝒓𝒂𝒄𝒕𝒊𝒗𝒆 𝒄𝒐𝒖𝒓𝒔𝒆
+            𝒘𝒉𝒆𝒓𝒆 𝒚𝒐𝒖
+            𝒘𝒊𝒍𝒍 𝒂𝒑𝒑𝒍𝒚 𝒚𝒐𝒖𝒓 𝒍𝒆𝒂𝒓𝒏𝒊𝒏𝒈 𝒕𝒉𝒓𝒐𝒖𝒈𝒉 𝒉𝒂𝒏𝒅𝒔-𝒐𝒏 𝒑𝒓𝒐𝒋𝒆𝒄𝒕𝒔.
+          </p>
+          <button class="enroll-button" id="enroll-button-11">Enroll Now</button>
+        </div>
+        <div class="course-card">
+          <img src="ds3.png" alt="Course 3" />
+          <h2>𝓢𝓽𝓪𝓽𝓲𝓼𝓽𝓲𝓬𝓪𝓵 𝓜𝓮𝓽𝓱𝓸𝓭𝓼 𝓯𝓸𝓻 𝓓𝓪𝓽𝓪 𝓢𝓬𝓲𝓮𝓷𝓬𝓮</h2>
+          <p>
+            𝑻𝒉𝒊𝒔 𝒄𝒐𝒖𝒓𝒔𝒆 𝒄𝒐𝒗𝒆𝒓𝒔 𝒔𝒕𝒂𝒕𝒊𝒔𝒕𝒊𝒄𝒂𝒍 𝒄𝒐𝒏𝒄𝒆𝒑𝒕𝒔 𝒂𝒏𝒅 𝒎𝒆𝒕𝒉𝒐𝒅𝒔 𝒖𝒔𝒆𝒅
+            𝒕𝒐
+            𝒂𝒏𝒂𝒍𝒚𝒛𝒆 𝒂𝒏𝒅 𝒊𝒏𝒕𝒆𝒓𝒑𝒓𝒆𝒕 𝒅𝒂𝒕𝒂, 𝒊𝒏𝒄𝒍𝒖𝒅𝒊𝒏𝒈 𝒑𝒓𝒐𝒃𝒂𝒃𝒊𝒍𝒊𝒕𝒚,
+            𝒉𝒚𝒑𝒐𝒕𝒉𝒆𝒔𝒊𝒔
+            𝒕𝒆𝒔𝒕𝒊𝒏𝒈, 𝒂𝒏𝒅 𝒓𝒆𝒈𝒓𝒆𝒔𝒔𝒊𝒐𝒏 𝒂𝒏𝒂𝒍𝒚𝒔𝒊𝒔. 𝑻𝒂𝒖𝒈𝒉𝒕 𝒃𝒚 𝑴𝒆𝒈𝒂𝒏 𝑺𝒄𝒐𝒕𝒕,
+            𝒊𝒕'𝒔 𝒂
+            𝒔𝒆𝒍𝒇-𝒑𝒂𝒄𝒆𝒅, 𝒕𝒉𝒆𝒐𝒓𝒚-𝒇𝒐𝒄𝒖𝒔𝒆𝒅 𝒄𝒐𝒖𝒓𝒔𝒆 𝒘𝒊𝒕𝒉 𝒓𝒆𝒂𝒍-𝒍𝒊𝒇𝒆 𝒆𝒙𝒂𝒎𝒑𝒍𝒆𝒔.
+          </p>
+          <button class="enroll-button" id="enroll-button-12">Enroll Now</button>
+        </div>
+        <div class="course-card">
+          <img src="ds4.jpeg" alt="Course 4" />
+          <h2>𝓜𝓪𝓬𝓱𝓲𝓷𝓮 𝓛𝓮𝓪𝓻𝓷𝓲𝓷𝓰 𝓕𝓸𝓾𝓷𝓭𝓪𝓽𝓲𝓸𝓷𝓼</h2>
+          <p>
+            𝑫𝒊𝒔𝒄𝒐𝒗𝒆𝒓 𝒕𝒉𝒆 𝒇𝒖𝒏𝒅𝒂𝒎𝒆𝒏𝒕𝒂𝒍𝒔 𝒐𝒇 𝒎𝒂𝒄𝒉𝒊𝒏𝒆 𝒍𝒆𝒂𝒓𝒏𝒊𝒏𝒈, 𝒊𝒏𝒄𝒍𝒖𝒅𝒊𝒏𝒈
+            𝒔𝒖𝒑𝒆𝒓𝒗𝒊𝒔𝒆𝒅 𝒂𝒏𝒅 𝒖𝒏𝒔𝒖𝒑𝒆𝒓𝒗𝒊𝒔𝒆𝒅 𝒍𝒆𝒂𝒓𝒏𝒊𝒏𝒈, 𝒂𝒏𝒅 𝒃𝒖𝒊𝒍𝒅 𝒚𝒐𝒖𝒓 𝒇𝒊𝒓𝒔𝒕
+            𝒎𝒂𝒄𝒉𝒊𝒏𝒆
+            𝒍𝒆𝒂𝒓𝒏𝒊𝒏𝒈 𝒎𝒐𝒅𝒆𝒍𝒔 𝒖𝒔𝒊𝒏𝒈 𝑷𝒚𝒕𝒉𝒐𝒏. 𝑫𝒂𝒗𝒊𝒅 𝑳𝒆𝒆 𝒘𝒊𝒍𝒍 𝒈𝒖𝒊𝒅𝒆 𝒚𝒐𝒖
+            𝒕𝒉𝒓𝒐𝒖𝒈𝒉
+            𝒍𝒊𝒗𝒆 𝒐𝒏𝒍𝒊𝒏𝒆 𝒄𝒍𝒂𝒔𝒔𝒆𝒔, 𝒐𝒇𝒇𝒆𝒓𝒊𝒏𝒈 𝒊𝒏𝒕𝒆𝒓𝒂𝒄𝒕𝒊𝒗𝒆 𝒔𝒆𝒔𝒔𝒊𝒐𝒏𝒔 𝒂𝒏𝒅
+            𝒑𝒓𝒂𝒄𝒕𝒊𝒄𝒂𝒍
+            𝒄𝒐𝒅𝒊𝒏𝒈 𝒄𝒉𝒂𝒍𝒍𝒆𝒏𝒈𝒆𝒔.
+          </p>
+          <button class="enroll-button" id="enroll-button-13">Enroll Now</button>
+        </div>
+        <div class="course-card">
+          <img src="ds5.png" alt="Course 5" />
+          <h2>𝓓𝓮𝓮𝓹 𝓛𝓮𝓪𝓻𝓷𝓲𝓷𝓰 𝔀𝓲𝓽𝓱 𝓣𝓮𝓷𝓼𝓸𝓻𝓕𝓵𝓸𝔀 𝓪𝓷𝓭 𝓚𝓮𝓻𝓪𝓼</h2>
+          <p>
+            𝑫𝒊𝒗𝒆 𝒊𝒏𝒕𝒐 𝒅𝒆𝒆𝒑 𝒍𝒆𝒂𝒓𝒏𝒊𝒏𝒈 𝒂𝒏𝒅 𝒏𝒆𝒖𝒓𝒂𝒍 𝒏𝒆𝒕𝒘𝒐𝒓𝒌𝒔 𝒖𝒔𝒊𝒏𝒈 𝒑𝒐𝒑𝒖𝒍𝒂𝒓
+            𝒇𝒓𝒂𝒎𝒆𝒘𝒐𝒓𝒌𝒔 𝒍𝒊𝒌𝒆 𝑻𝒆𝒏𝒔𝒐𝒓𝑭𝒍𝒐𝒘 𝒂𝒏𝒅 𝑲𝒆𝒓𝒂𝒔 𝒕𝒐 𝒃𝒖𝒊𝒍𝒅 𝒑𝒐𝒘𝒆𝒓𝒇𝒖𝒍 𝑨𝑰
+            𝒎𝒐𝒅𝒆𝒍𝒔.
+            𝑴𝒊𝒄𝒉𝒂𝒆𝒍 𝑩𝒓𝒐𝒘𝒏 𝒕𝒆𝒂𝒄𝒉𝒆𝒔 𝒕𝒉𝒊𝒔 𝒄𝒐𝒖𝒓𝒔𝒆 𝒕𝒉𝒓𝒐𝒖𝒈𝒉 𝒍𝒊𝒗𝒆 𝒍𝒆𝒄𝒕𝒖𝒓𝒆𝒔,
+            𝒐𝒇𝒇𝒆𝒓𝒊𝒏𝒈
+            𝒉𝒂𝒏𝒅𝒔-𝒐𝒏 𝒔𝒆𝒔𝒔𝒊𝒐𝒏𝒔 𝒕𝒐 𝒄𝒓𝒆𝒂𝒕𝒆 𝒓𝒆𝒂𝒍-𝒘𝒐𝒓𝒍𝒅 𝑨𝑰 𝒔𝒐𝒍𝒖𝒕𝒊𝒐𝒏𝒔.
+          </p>
+          <button class="enroll-button" id="enroll-button-14">Enroll Now</button>
+        </div>
+        <div class="course-card">
+          <img src="ds6.jpg" alt="Course 6" />
+          <h2>𝓓𝓪𝓽𝓪 𝓥𝓲𝓼𝓾𝓪𝓵𝓲𝔃𝓪𝓽𝓲𝓸𝓷 𝔀𝓲𝓽𝓱 𝓟𝔂𝓽𝓱𝓸𝓷</h2>
+          <p>
+            𝑳𝒆𝒂𝒓𝒏 𝒕𝒐 𝒗𝒊𝒔𝒖𝒂𝒍𝒊𝒛𝒆 𝒄𝒐𝒎𝒑𝒍𝒆𝒙 𝒅𝒂𝒕𝒂𝒔𝒆𝒕𝒔 𝒖𝒔𝒊𝒏𝒈 𝑷𝒚𝒕𝒉𝒐𝒏’𝒔
+            𝒗𝒊𝒔𝒖𝒂𝒍𝒊𝒛𝒂𝒕𝒊𝒐𝒏
+            𝒍𝒊𝒃𝒓𝒂𝒓𝒊𝒆𝒔 𝒍𝒊𝒌𝒆 𝑴𝒂𝒕𝒑𝒍𝒐𝒕𝒍𝒊𝒃, 𝑺𝒆𝒂𝒃𝒐𝒓𝒏, 𝒂𝒏𝒅 𝑷𝒍𝒐𝒕𝒍𝒚 𝒕𝒐
+            𝒄𝒐𝒎𝒎𝒖𝒏𝒊𝒄𝒂𝒕𝒆
+            𝒊𝒏𝒔𝒊𝒈𝒉𝒕𝒔 𝒆𝒇𝒇𝒆𝒄𝒕𝒊𝒗𝒆𝒍𝒚. 𝑻𝒂𝒖𝒈𝒉𝒕 𝒃𝒚 𝑬𝒎𝒊𝒍𝒚 𝑾𝒉𝒊𝒕𝒆, 𝒕𝒉𝒊𝒔
+            𝒔𝒆𝒍𝒇-𝒑𝒂𝒄𝒆𝒅
+            𝒄𝒐𝒖𝒓𝒔𝒆 𝒑𝒓𝒐𝒗𝒊𝒅𝒆𝒔 𝒔𝒕𝒆𝒑-𝒃𝒚-𝒔𝒕𝒆𝒑 𝒈𝒖𝒊𝒅𝒂𝒏𝒄𝒆 𝒕𝒐 𝒎𝒂𝒔𝒕𝒆𝒓 𝒅𝒂𝒕𝒂
+            𝒗𝒊𝒔𝒖𝒂𝒍𝒊𝒛𝒂𝒕𝒊𝒐𝒏
+            𝒕𝒆𝒄𝒉𝒏𝒊𝒒𝒖𝒆𝒔.
+          </p>
+          <button class="enroll-button" id="enroll-button-15">Enroll Now</button>
+        </div>
+        <div class="course-card">
+          <img src="ds7.webp" alt="Course 7" />
+          <h2>𝓓𝓪𝓽𝓪 𝓢𝓬𝓲𝓮𝓷𝓬𝓮 𝓒𝓪𝓹𝓼𝓽𝓸𝓷𝓮 𝓟𝓻𝓸𝓳𝓮𝓬𝓽</h2>
+          <p>
+            𝑨𝒑𝒑𝒍𝒚 𝒆𝒗𝒆𝒓𝒚𝒕𝒉𝒊𝒏𝒈 𝒚𝒐𝒖’𝒗𝒆 𝒍𝒆𝒂𝒓𝒏𝒆𝒅 𝒊𝒏 𝒂 𝒓𝒆𝒂𝒍-𝒘𝒐𝒓𝒍𝒅 𝒅𝒂𝒕𝒂
+            𝒔𝒄𝒊𝒆𝒏𝒄𝒆
+            𝒑𝒓𝒐𝒋𝒆𝒄𝒕, 𝒇𝒓𝒐𝒎 𝒅𝒂𝒕𝒂 𝒄𝒍𝒆𝒂𝒏𝒊𝒏𝒈 𝒕𝒐 𝒎𝒂𝒄𝒉𝒊𝒏𝒆 𝒍𝒆𝒂𝒓𝒏𝒊𝒏𝒈, 𝒖𝒏𝒅𝒆𝒓 𝒕𝒉𝒆
+            𝒈𝒖𝒊𝒅𝒂𝒏𝒄𝒆 𝒐𝒇 𝑪𝒉𝒓𝒊𝒔 𝑩𝒍𝒂𝒄𝒌. 𝑻𝒉𝒊𝒔 𝒍𝒊𝒗𝒆 𝒄𝒐𝒖𝒓𝒔𝒆 𝒊𝒏𝒗𝒐𝒍𝒗𝒆𝒔
+            𝒎𝒆𝒏𝒕𝒐𝒓𝒔𝒉𝒊𝒑 𝒂𝒏𝒅
+            𝒇𝒆𝒆𝒅𝒃𝒂𝒄𝒌 𝒔𝒆𝒔𝒔𝒊𝒐𝒏𝒔 𝒕𝒐 𝒉𝒆𝒍𝒑 𝒚𝒐𝒖 𝒔𝒖𝒄𝒄𝒆𝒔𝒔𝒇𝒖𝒍𝒍𝒚 𝒄𝒐𝒎𝒑𝒍𝒆𝒕𝒆 𝒚𝒐𝒖𝒓
+            𝒄𝒂𝒑𝒔𝒕𝒐𝒏𝒆
+            𝒑𝒓𝒐𝒋𝒆𝒄𝒕 𝒂𝒏𝒅 𝒑𝒓𝒆𝒑𝒂𝒓𝒆 𝒇𝒐𝒓 𝒂 𝒄𝒂𝒓𝒆𝒆𝒓 𝒊𝒏 𝒅𝒂𝒕𝒂 𝒔𝒄𝒊𝒆𝒏𝒄𝒆.
+          </p>
+          <button class="enroll-button" id="enroll-button-16">Enroll Now</button>
+        </div>
+        <div class="course-card">
+          <img src="ds8.png" alt="Course 8" />
+          <h2>𝓑𝓲𝓰 𝓓𝓪𝓽𝓪 𝓐𝓷𝓪𝓵𝔂𝓽𝓲𝓬𝓼 𝔀𝓲𝓽𝓱 𝓗𝓪𝓭𝓸𝓸𝓹 𝓪𝓷𝓭 𝓢𝓹𝓪𝓻𝓴</h2>
+          <p>
+            𝑬𝒙𝒑𝒍𝒐𝒓𝒆 𝒃𝒊𝒈 𝒅𝒂𝒕𝒂 𝒕𝒆𝒄𝒉𝒏𝒐𝒍𝒐𝒈𝒊𝒆𝒔 𝒍𝒊𝒌𝒆 𝑯𝒂𝒅𝒐𝒐𝒑 𝒂𝒏𝒅 𝑺𝒑𝒂𝒓𝒌 𝒕𝒐
+            𝒂𝒏𝒂𝒍𝒚𝒛𝒆
+            𝒎𝒂𝒔𝒔𝒊𝒗𝒆 𝒅𝒂𝒕𝒂𝒔𝒆𝒕𝒔 𝒂𝒏𝒅 𝒖𝒏𝒄𝒐𝒗𝒆𝒓 𝒊𝒏𝒔𝒊𝒈𝒉𝒕𝒔 𝒊𝒏 𝒓𝒆𝒂𝒍-𝒕𝒊𝒎𝒆. 𝑱𝒐𝒉𝒏
+            𝑫𝒐𝒆 𝒍𝒆𝒂𝒅𝒔
+            𝒕𝒉𝒊𝒔 𝒍𝒊𝒗𝒆, 𝒇𝒂𝒄𝒖𝒍𝒕𝒚-𝒍𝒆𝒅 𝒄𝒐𝒖𝒓𝒔𝒆 𝒕𝒉𝒂𝒕 𝒊𝒏𝒄𝒍𝒖𝒅𝒆𝒔 𝒊𝒏𝒕𝒆𝒓𝒂𝒄𝒕𝒊𝒗𝒆
+            𝒍𝒆𝒂𝒓𝒏𝒊𝒏𝒈
+            𝒂𝒏𝒅 𝒄𝒂𝒔𝒆 𝒔𝒕𝒖𝒅𝒊𝒆𝒔 𝒇𝒓𝒐𝒎 𝒊𝒏𝒅𝒖𝒔𝒕𝒓𝒚 𝒂𝒑𝒑𝒍𝒊𝒄𝒂𝒕𝒊𝒐𝒏𝒔.
+          </p>
+          <button class="enroll-button" id="enroll-button-17">Enroll Now</button>
+        </div>
+        <div class="course-card">
+          <img src="ds9.png" alt="Course 9" />
+          <h2>𝓝𝓪𝓽𝓾𝓻𝓪𝓵 𝓛𝓪𝓷𝓰𝓾𝓪𝓰𝓮 𝓟𝓻𝓸𝓬𝓮𝓼𝓼𝓲𝓷𝓰 𝔀𝓲𝓽𝓱 𝓟𝔂𝓽𝓱𝓸𝓷</h2>
+          <p>
+            𝑳𝒆𝒂𝒓𝒏 𝒉𝒐𝒘 𝒕𝒐 𝒑𝒓𝒐𝒄𝒆𝒔𝒔 𝒂𝒏𝒅 𝒂𝒏𝒂𝒍𝒚𝒛𝒆 𝒕𝒆𝒙𝒕 𝒅𝒂𝒕𝒂 𝒖𝒔𝒊𝒏𝒈 𝒏𝒂𝒕𝒖𝒓𝒂𝒍
+            𝒍𝒂𝒏𝒈𝒖𝒂𝒈𝒆
+            𝒑𝒓𝒐𝒄𝒆𝒔𝒔𝒊𝒏𝒈 (𝑵𝑳𝑷) 𝒕𝒆𝒄𝒉𝒏𝒊𝒒𝒖𝒆𝒔 𝒊𝒏 𝑷𝒚𝒕𝒉𝒐𝒏, 𝒊𝒏𝒄𝒍𝒖𝒅𝒊𝒏𝒈 𝒕𝒆𝒙𝒕
+            𝒄𝒍𝒂𝒔𝒔𝒊𝒇𝒊𝒄𝒂𝒕𝒊𝒐𝒏 𝒂𝒏𝒅 𝒔𝒆𝒏𝒕𝒊𝒎𝒆𝒏𝒕 𝒂𝒏𝒂𝒍𝒚𝒔𝒊𝒔. 𝑻𝒂𝒖𝒈𝒉𝒕 𝒃𝒚 𝑺𝒂𝒓𝒂𝒉
+            𝑱𝒐𝒉𝒏𝒔𝒐𝒏,
+            𝒕𝒉𝒊𝒔 𝒄𝒐𝒖𝒓𝒔𝒆 𝒄𝒐𝒎𝒃𝒊𝒏𝒆𝒔 𝒔𝒆𝒍𝒇-𝒑𝒂𝒄𝒆𝒅 𝒍𝒆𝒔𝒔𝒐𝒏𝒔 𝒘𝒊𝒕𝒉 𝒍𝒊𝒗𝒆
+            𝒅𝒊𝒔𝒄𝒖𝒔𝒔𝒊𝒐𝒏𝒔 𝒇𝒐𝒓
+            𝒑𝒓𝒂𝒄𝒕𝒊𝒄𝒂𝒍 𝒂𝒑𝒑𝒍𝒊𝒄𝒂𝒕𝒊𝒐𝒏𝒔.
+          </p>
+          <button class="enroll-button" id="enroll-button-18">Enroll Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Business Section -->
+    <div class="section" id="business">
+      <img src="b.gif" class="section-title-3" />
+      <div class="course-container">
+        <!-- Courses for Business -->
+        <div class="course-card">
+          <img src="b1.jpg" alt="Course 1" />
+          <h2>
+            𝓑𝓾𝓼𝓲𝓷𝓮𝓼𝓼 𝓕𝓾𝓷𝓭𝓪𝓶𝓮𝓷𝓽𝓪𝓵𝓼: 𝓢𝓽𝓪𝓻𝓽𝓲𝓷𝓰 𝓨𝓸𝓾𝓻 𝓔𝓷𝓽𝓻𝓮𝓹𝓻𝓮𝓷𝓮𝓾𝓻𝓲𝓪𝓵
+            𝓙𝓸𝓾𝓻𝓷𝓮𝔂
+          </h2>
+          <p>
+            𝑳𝒆𝒂𝒓𝒏 𝒕𝒉𝒆 𝒆𝒔𝒔𝒆𝒏𝒕𝒊𝒂𝒍𝒔 𝒐𝒇 𝒔𝒕𝒂𝒓𝒕𝒊𝒏𝒈 𝒂 𝒃𝒖𝒔𝒊𝒏𝒆𝒔𝒔, 𝒇𝒓𝒐𝒎 𝒊𝒅𝒆𝒂𝒕𝒊𝒐𝒏
+            𝒕𝒐
+            𝒔𝒆𝒕𝒕𝒊𝒏𝒈 𝒖𝒑 𝒚𝒐𝒖𝒓 𝒐𝒑𝒆𝒓𝒂𝒕𝒊𝒐𝒏𝒔, 𝒊𝒏𝒄𝒍𝒖𝒅𝒊𝒏𝒈 𝒍𝒆𝒈𝒂𝒍 𝒂𝒏𝒅 𝒇𝒊𝒏𝒂𝒏𝒄𝒊𝒂𝒍
+            𝒄𝒐𝒏𝒔𝒊𝒅𝒆𝒓𝒂𝒕𝒊𝒐𝒏𝒔. 𝑻𝒂𝒖𝒈𝒉𝒕 𝒃𝒚 𝑬𝒎𝒎𝒂 𝑪𝒍𝒂𝒓𝒌, 𝒕𝒉𝒊𝒔 𝒊𝒔 𝒂 𝒔𝒆𝒍𝒇-𝒑𝒂𝒄𝒆𝒅
+            𝒄𝒐𝒖𝒓𝒔𝒆
+            𝒘𝒊𝒕𝒉 𝒕𝒉𝒆𝒐𝒓𝒚-𝒃𝒂𝒔𝒆𝒅 𝒎𝒐𝒅𝒖𝒍𝒆𝒔 𝒂𝒏𝒅 𝒑𝒓𝒂𝒄𝒕𝒊𝒄𝒂𝒍 𝒈𝒖𝒊𝒅𝒂𝒏𝒄𝒆.
+          </p>
+          <button class="enroll-button" id="enroll-button-19">Enroll Now</button>
+        </div>
+        <div class="course-card">
+          <img src="b2.jpg" alt="Course 2" />
+          <h2>𝓢𝓽𝓻𝓪𝓽𝓮𝓰𝓲𝓬 𝓜𝓪𝓷𝓪𝓰𝓮𝓶𝓮𝓷𝓽 𝓪𝓷𝓭 𝓑𝓾𝓼𝓲𝓷𝓮𝓼𝓼 𝓟𝓵𝓪𝓷𝓷𝓲𝓷𝓰</h2>
+          <p>
+            𝑼𝒏𝒅𝒆𝒓𝒔𝒕𝒂𝒏𝒅 𝒕𝒉𝒆 𝒔𝒕𝒓𝒂𝒕𝒆𝒈𝒊𝒆𝒔 𝒃𝒆𝒉𝒊𝒏𝒅 𝒔𝒖𝒄𝒄𝒆𝒔𝒔𝒇𝒖𝒍 𝒃𝒖𝒔𝒊𝒏𝒆𝒔𝒔
+            𝒎𝒂𝒏𝒂𝒈𝒆𝒎𝒆𝒏𝒕,
+            𝒊𝒏𝒄𝒍𝒖𝒅𝒊𝒏𝒈 𝒎𝒂𝒓𝒌𝒆𝒕 𝒂𝒏𝒂𝒍𝒚𝒔𝒊𝒔, 𝒃𝒖𝒔𝒊𝒏𝒆𝒔𝒔 𝒎𝒐𝒅𝒆𝒍𝒔, 𝒂𝒏𝒅 𝒍𝒐𝒏𝒈-𝒕𝒆𝒓𝒎
+            𝒑𝒍𝒂𝒏𝒏𝒊𝒏𝒈. 𝑻𝒂𝒖𝒈𝒉𝒕 𝒃𝒚 𝑱𝒂𝒎𝒆𝒔 𝑴𝒊𝒍𝒍𝒆𝒓, 𝒕𝒉𝒊𝒔 𝒄𝒐𝒖𝒓𝒔𝒆 𝒊𝒔 𝒍𝒊𝒗𝒆 𝒂𝒏𝒅
+            𝒊𝒏𝒕𝒆𝒓𝒂𝒄𝒕𝒊𝒗𝒆, 𝒘𝒊𝒕𝒉 𝒄𝒂𝒔𝒆 𝒔𝒕𝒖𝒅𝒊𝒆𝒔 𝒂𝒏𝒅 𝒓𝒆𝒂𝒍-𝒘𝒐𝒓𝒍𝒅 𝒆𝒙𝒂𝒎𝒑𝒍𝒆𝒔
+            𝒅𝒊𝒔𝒄𝒖𝒔𝒔𝒆𝒅
+            𝒅𝒖𝒓𝒊𝒏𝒈 𝒆𝒂𝒄𝒉 𝒔𝒆𝒔𝒔𝒊𝒐𝒏.
+          </p>
+          <button class="enroll-button" id="enroll-button-20">Enroll Now</button>
+        </div>
+        <div class="course-card">
+          <img src="b3.jpg" alt="Course 3" />
+          <h2>𝓕𝓲𝓷𝓪𝓷𝓬𝓲𝓪𝓵 𝓐𝓬𝓬𝓸𝓾𝓷𝓽𝓲𝓷𝓰 𝓯𝓸𝓻 𝓑𝓮𝓰𝓲𝓷𝓷𝓮𝓻𝓼</h2>
+          <p>
+            𝑮𝒂𝒊𝒏 𝒂 𝒔𝒕𝒓𝒐𝒏𝒈 𝒇𝒐𝒖𝒏𝒅𝒂𝒕𝒊𝒐𝒏 𝒊𝒏 𝒇𝒊𝒏𝒂𝒏𝒄𝒊𝒂𝒍 𝒂𝒄𝒄𝒐𝒖𝒏𝒕𝒊𝒏𝒈, 𝒄𝒐𝒗𝒆𝒓𝒊𝒏𝒈
+            𝒕𝒐𝒑𝒊𝒄𝒔
+            𝒍𝒊𝒌𝒆 𝒃𝒂𝒍𝒂𝒏𝒄𝒆 𝒔𝒉𝒆𝒆𝒕𝒔, 𝒊𝒏𝒄𝒐𝒎𝒆 𝒔𝒕𝒂𝒕𝒆𝒎𝒆𝒏𝒕𝒔, 𝒂𝒏𝒅 𝒄𝒂𝒔𝒉 𝒇𝒍𝒐𝒘
+            𝒎𝒂𝒏𝒂𝒈𝒆𝒎𝒆𝒏𝒕.
+            𝑶𝒍𝒊𝒗𝒊𝒂 𝑮𝒓𝒆𝒆𝒏 𝒘𝒊𝒍𝒍 𝒕𝒆𝒂𝒄𝒉 𝒕𝒉𝒊𝒔 𝒔𝒆𝒍𝒇-𝒑𝒂𝒄𝒆𝒅 𝒄𝒐𝒖𝒓𝒔𝒆, 𝒐𝒇𝒇𝒆𝒓𝒊𝒏𝒈
+            𝒅𝒆𝒕𝒂𝒊𝒍𝒆𝒅
+            𝒍𝒆𝒔𝒔𝒐𝒏𝒔 𝒂𝒏𝒅 𝒑𝒓𝒂𝒄𝒕𝒊𝒄𝒂𝒍 𝒆𝒙𝒂𝒎𝒑𝒍𝒆𝒔 𝒇𝒐𝒓 𝒍𝒆𝒂𝒓𝒏𝒆𝒓𝒔 𝒂𝒕 𝒂𝒍𝒍 𝒍𝒆𝒗𝒆𝒍𝒔.
+          </p>
+          <button class="enroll-button" id="enroll-button-21">Enroll Now</button>
+        </div>
+        <div class="course-card">
+          <img src="b4.jpg" alt="Course 4" />
+          <h2>𝓜𝓪𝓻𝓴𝓮𝓽𝓲𝓷𝓰 𝓢𝓽𝓻𝓪𝓽𝓮𝓰𝓲𝓮𝓼 𝓯𝓸𝓻 𝓓𝓲𝓰𝓲𝓽𝓪𝓵 𝓑𝓾𝓼𝓲𝓷𝓮𝓼𝓼𝓮𝓼</h2>
+          <p>
+            𝙀𝙭𝙥𝙡𝙤𝙧𝙚 𝙩𝙝𝙚 𝙡𝙖𝙩𝙚𝙨𝙩 𝙙𝙞𝙜𝙞𝙩𝙖𝙡 𝙢𝙖𝙧𝙠𝙚𝙩𝙞𝙣𝙜 𝙩𝙧𝙚𝙣𝙙𝙨, 𝙛𝙧𝙤𝙢 𝙎𝙀𝙊 𝙖𝙣𝙙
+            𝙨𝙤𝙘𝙞𝙖𝙡
+            𝙢𝙚𝙙𝙞𝙖 𝙢𝙖𝙧𝙠𝙚𝙩𝙞𝙣𝙜 𝙩𝙤 𝙘𝙤𝙣𝙩𝙚𝙣𝙩 𝙖𝙣𝙙 𝙚𝙢𝙖𝙞𝙡 𝙢𝙖𝙧𝙠𝙚𝙩𝙞𝙣𝙜, 𝙩𝙤 𝙜𝙧𝙤𝙬
+            𝙮𝙤𝙪𝙧
+            𝙤𝙣𝙡𝙞𝙣𝙚 𝙗𝙪𝙨𝙞𝙣𝙚𝙨𝙨. 𝙏𝙖𝙪𝙜𝙝𝙩 𝙗𝙮 𝙇𝙞𝙖𝙢 𝙒𝙧𝙞𝙜𝙝𝙩, 𝙩𝙝𝙞𝙨 𝙘𝙤𝙪𝙧𝙨𝙚
+            𝙘𝙤𝙢𝙗𝙞𝙣𝙚𝙨 𝙡𝙞𝙫𝙚
+            𝙤𝙣𝙡𝙞𝙣𝙚 𝙡𝙚𝙘𝙩𝙪𝙧𝙚𝙨 𝙖𝙣𝙙 𝙝𝙖𝙣𝙙𝙨-𝙤𝙣 𝙚𝙭𝙚𝙧𝙘𝙞𝙨𝙚𝙨 𝙛𝙤𝙧 𝙞𝙢𝙢𝙚𝙙𝙞𝙖𝙩𝙚
+            𝙖𝙥𝙥𝙡𝙞𝙘𝙖𝙩𝙞𝙤𝙣.
+          </p>
+          <button class="enroll-button" id="enroll-button-22">Enroll Now</button>
+        </div>
+        <div class="course-card">
+          <img src="b5.jpg" alt="Course 5" />
+          <h2>𝓓𝓪𝓽𝓪-𝓓𝓻𝓲𝓿𝓮𝓷 𝓓𝓮𝓬𝓲𝓼𝓲𝓸𝓷 𝓜𝓪𝓴𝓲𝓷𝓰 𝓲𝓷 𝓑𝓾𝓼𝓲𝓷𝓮𝓼𝓼</h2>
+          <p>
+            𝑳𝒆𝒂𝒓𝒏 𝒉𝒐𝒘 𝒕𝒐 𝒍𝒆𝒗𝒆𝒓𝒂𝒈𝒆 𝒅𝒂𝒕𝒂 𝒂𝒏𝒂𝒍𝒚𝒕𝒊𝒄𝒔 𝒕𝒐 𝒎𝒂𝒌𝒆 𝒊𝒏𝒇𝒐𝒓𝒎𝒆𝒅
+            𝒃𝒖𝒔𝒊𝒏𝒆𝒔𝒔
+            𝒅𝒆𝒄𝒊𝒔𝒊𝒐𝒏𝒔, 𝒄𝒐𝒗𝒆𝒓𝒊𝒏𝒈 𝒕𝒐𝒐𝒍𝒔 𝒍𝒊𝒌𝒆 𝑬𝒙𝒄𝒆𝒍, 𝑷𝒐𝒘𝒆𝒓 𝑩𝑰, 𝒂𝒏𝒅 𝑻𝒂𝒃𝒍𝒆𝒂𝒖.
+            𝑺𝒐𝒑𝒉𝒊𝒂 𝑳𝒆𝒆 𝒘𝒊𝒍𝒍 𝒈𝒖𝒊𝒅𝒆 𝒚𝒐𝒖 𝒕𝒉𝒓𝒐𝒖𝒈𝒉 𝒍𝒊𝒗𝒆 𝒔𝒆𝒔𝒔𝒊𝒐𝒏𝒔, 𝒐𝒇𝒇𝒆𝒓𝒊𝒏𝒈
+            𝒑𝒓𝒂𝒄𝒕𝒊𝒄𝒂𝒍 𝒔𝒌𝒊𝒍𝒍𝒔 𝒂𝒏𝒅 𝒊𝒏𝒔𝒊𝒈𝒉𝒕𝒔 𝒘𝒊𝒕𝒉 𝒓𝒆𝒂𝒍-𝒕𝒊𝒎𝒆 𝒇𝒆𝒆𝒅𝒃𝒂𝒄𝒌.
+          </p>
+          <button class="enroll-button" id="enroll-button-23">Enroll Now</button>
+        </div>
+        <div class="course-card">
+          <img src="b6.webp" alt="Course 6" />
+          <h2>𝓛𝓮𝓪𝓭𝓮𝓻𝓼𝓱𝓲𝓹 𝓪𝓷𝓭 𝓞𝓻𝓰𝓪𝓷𝓲𝔃𝓪𝓽𝓲𝓸𝓷𝓪𝓵 𝓑𝓮𝓱𝓪𝓿𝓲𝓸𝓻</h2>
+          <p>
+            𝑻𝒉𝒊𝒔 𝒄𝒐𝒖𝒓𝒔𝒆 𝒘𝒊𝒍𝒍 𝒕𝒆𝒂𝒄𝒉 𝒚𝒐𝒖 𝒕𝒉𝒆 𝒄𝒐𝒓𝒆 𝒑𝒓𝒊𝒏𝒄𝒊𝒑𝒍𝒆𝒔 𝒐𝒇
+            𝒆𝒇𝒇𝒆𝒄𝒕𝒊𝒗𝒆
+            𝒍𝒆𝒂𝒅𝒆𝒓𝒔𝒉𝒊𝒑, 𝒕𝒆𝒂𝒎 𝒅𝒚𝒏𝒂𝒎𝒊𝒄𝒔, 𝒂𝒏𝒅 𝒎𝒐𝒕𝒊𝒗𝒂𝒕𝒊𝒏𝒈 𝒆𝒎𝒑𝒍𝒐𝒚𝒆𝒆𝒔 𝒘𝒊𝒕𝒉𝒊𝒏
+            𝒐𝒓𝒈𝒂𝒏𝒊𝒛𝒂𝒕𝒊𝒐𝒏𝒔. 𝑻𝒂𝒖𝒈𝒉𝒕 𝒃𝒚 𝑫𝒂𝒗𝒊𝒅 𝑯𝒂𝒓𝒓𝒊𝒔, 𝒊𝒕’𝒔 𝒂 𝒍𝒊𝒗𝒆 𝒄𝒐𝒖𝒓𝒔𝒆
+            𝒘𝒊𝒕𝒉
+            𝒊𝒏𝒕𝒆𝒓𝒂𝒄𝒕𝒊𝒗𝒆 𝒈𝒓𝒐𝒖𝒑 𝒅𝒊𝒔𝒄𝒖𝒔𝒔𝒊𝒐𝒏𝒔 𝒂𝒏𝒅 𝒍𝒆𝒂𝒅𝒆𝒓𝒔𝒉𝒊𝒑 𝒄𝒂𝒔𝒆
+            𝒔𝒕𝒖𝒅𝒊𝒆𝒔.
+          </p>
+          <button class="enroll-button" id="enroll-button-24">Enroll Now</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+
+
+  <footer>
+    <p>&copy; 2024 EmpowerEdu. All Rights Reserved.</p>
+  </footer>
+
+</body>
+
+</html>

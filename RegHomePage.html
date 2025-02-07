@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EmpowerEduing Platform</title>
+    <style>
+      /* CSS Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background-color: #f4f4f9;
+        color: #333;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #d0bb02;
+        color: white;
+        padding-left: 0;
+        padding-right: 10px;
+        padding-bottom: 0;
+        width: 100%;
+        height: 60px;
+        position: fixed; /* Fixed position */
+        top: 0; /* Stick to the top */
+        z-index: 1000;
+      }
+
+      header nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      .logo {
+        display: flex;
+  align-items: center;
+  margin-right: 20px;
+      }
+
+      .logo img {
+        height: 65px;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        /* gap: 10px; */
+        margin: 0;
+        flex-grow: 1;
+        align-items: center;
+      }
+
+      .nav-links li {
+  flex: 1; /* Ensures equal spacing between links */
+  text-align: center; /* Center aligns each link in its space */
+  width: 100%;
+  line-height: 60px; /* Adjust line height to match the height of the header */
+  height: 60px;
+}
+
+      .nav-links a {
+        color: rgb(20, 9, 103);
+        text-decoration: none;
+        font-size: 25px;
+        font-weight: bold;
+        transition: color 0.3s;
+        display: block; /* Make the anchor tag block-level to fill the li and allow centering */
+  height: 100%; /* Ensure the anchor fills the li vertically */
+  line-height: 60px;
+      }
+
+      .nav-links a:hover {
+        color: rgb(7, 47, 155);
+      }
+
+      .btn {
+        background: #dfc637;
+        border-radius: 4px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        height: 100%; /* Ensure button fills the li element vertically */
+  line-height: 60px; /* Center text vertically inside the button */
+  display: inline-flex; /* Align the button properly */
+  justify-content: center; /* Center text horizontally */
+  align-items: center; /* Center text vertically */
+  /* margin-left: 20px; */
+      }
+
+      .hero {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding-top: 50px;
+        padding-bottom: 20px;
+        background: #524210;
+        background-image: url("homebg1.png");
+        color: rgb(255, 255, 255);
+        min-height: 500px;
+        text-align: center;
+      }
+
+      .hero .features {
+        margin-bottom: 30px;
+      }
+
+      .hero h2 {
+        font-size: 45px;
+        margin-bottom: 10px;
+        padding-top: 50px;
+      }
+
+      .hero p {
+        font-size: 20px;
+      }
+
+      .hero .image-container {
+        display: flex;
+        gap: 100px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hero .image-circle {
+        width: 300px;
+        height: 350px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .hero .image-circle img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid rgb(255, 255, 255);
+      }
+
+      .image-circle p {
+        padding-top: 10px;
+      }
+
+      .hero .explore-button img {
+        width: 80%; /* Ensure the image fills the container */
+        height: auto; /* Maintain the aspect ratio */
+        display: block; /* Remove any space below the image */
+      }
+
+      .courses {
+        padding: 20px;
+        padding-bottom: 0;
+        text-align: center;
+        background-color: #675305;
+        background-image: url("homebg2.png");
+        background-size: auto;
+        max-width: 100%;
+        margin: 0 auto;
+      }
+
+      .courses h2 {
+        font-size: 40px;
+        font-weight: bolder;
+        margin-bottom: 30px;
+        color: #ffffff;
+      }
+
+      .course-grid {
+        display: flex;
+        gap: 20px;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        margin: 0 auto;
+      }
+
+      .course-card {
+        background: #ede8f5;
+        padding: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        height: 250px;
+        border-radius: 8px;
+        flex: none;
+        text-align: center;
+      }
+
+      .course-card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 15px;
+      }
+
+      .course-card h3 {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .course-grid::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .course-grid::-webkit-scrollbar-thumb {
+        background-color: #dfc637;
+        border-radius: 4px;
+      }
+
+      .course-grid::-webkit-scrollbar-track {
+        background-color: #e1e1e1;
+      }
+
+      footer {
+        background: #333;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HTML Structure -->
+    <header>
+      <nav>
+        <div class="logo">
+          <img src="Logo.gif" alt="EmpowerEdu Logo" />
+        </div>
+        <ul class="nav-links">
+          <li><a href="RegHomePage.html">ʜᴏᴍᴇ</a></li>
+          <li><a href="courses.html">ᴄᴏᴜʀꜱᴇꜱ</a></li>
+          <li><a href="pricing.html">ᴘʀɪᴄɪɴɢ</a></li>
+          <li><a href="about.html">ᴀʙᴏᴜᴛ ᴜꜱ</a></li>
+          <li><a href="#contact">ᴄᴏɴᴛᴀᴄᴛ</a></li>
+          <li><a href="profilefront.php">ᴘʀᴏꜰɪʟᴇ</a></li>
+          <li><a href="logout.php" class="btn">ʟᴏɢᴏᴜᴛ</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero" id="home">
+      <div class="features">
+        <h2>𝒲𝑒𝓁𝒸𝑜𝓂𝑒 𝓉𝑜 𝐸𝓂𝓅𝑜𝓌𝑒𝓇𝐸𝒹𝓊!</h2>
+        <p>
+          𝑫𝒊𝒔𝒄𝒐𝒗𝒆𝒓 𝒆𝒏𝒅𝒍𝒆𝒔𝒔 𝒑𝒐𝒔𝒔𝒊𝒃𝒊𝒍𝒊𝒕𝒊𝒆𝒔 𝒂𝒏𝒅 𝒊𝒈𝒏𝒊𝒕𝒆 𝒚𝒐𝒖𝒓 𝒑𝒂𝒔𝒔𝒊𝒐𝒏 𝒇𝒐𝒓 𝒍𝒆𝒂𝒓𝒏𝒊𝒏𝒈.
+        </p>
+      </div>
+      <div class="image-container">
+        <div class="image-circle">
+          <img src="homeimg1.jpg" alt="EmpowerEdu Image 1" />
+          <p>
+            𝖫𝗂𝗏𝖾 𝖮𝗇𝗅𝗂𝗇𝖾 𝖫𝖾𝖼𝗍𝗎𝗋𝖾𝗌: "𝖤𝗇𝗀𝖺𝗀𝖾 𝗐𝗂𝗍𝗁 𝖾𝗑𝗉𝖾𝗋𝗍 𝗂𝗇𝗌𝗍𝗋𝗎𝖼𝗍𝗈𝗋𝗌 𝗂𝗇 𝗋𝖾𝖺𝗅-𝗍𝗂𝗆𝖾,
+            𝗋𝗂𝗀𝗁𝗍 𝖿𝗋𝗈𝗆 𝗒𝗈𝗎𝗋 𝗁𝗈𝗆𝖾."
+          </p>
+        </div>
+        <div class="image-circle">
+          <img src="homeimg2.png" alt="EmpowerEdu Image 2" />
+          <p>
+            𝖲𝖾𝗅𝖿-𝖯𝖺𝖼𝖾𝖽 𝖫𝖾𝖺𝗋𝗇𝗂𝗇𝗀: "𝖫𝖾𝖺𝗋𝗇 𝖺𝗍 𝗒𝗈𝗎𝗋 𝗈𝗐𝗇 𝗉𝖺𝖼𝖾 𝗐𝗂𝗍𝗁 𝖿𝗅𝖾𝗑𝗂𝖻𝗅𝖾,
+            𝗍𝖾𝗑𝗍-𝖻𝖺𝗌𝖾𝖽 𝖼𝗈𝗎𝗋𝗌𝖾𝗌 𝖽𝖾𝗌𝗂𝗀𝗇𝖾𝖽 𝗃𝗎𝗌𝗍 𝖿𝗈𝗋 𝗒𝗈𝗎."
+          </p>
+        </div>
+        <div class="image-circle">
+          <img src="homeimg3.avif" alt="EmpowerEdu Image 3" />
+          <p>
+            𝖳𝗋𝖺𝖼𝗄 𝖸𝗈𝗎𝗋 𝖯𝗋𝗈𝗀𝗋𝖾𝗌𝗌: "𝖲𝗍𝖺𝗒 𝗆𝗈𝗍𝗂𝗏𝖺𝗍𝖾𝖽 𝖻𝗒 𝗍𝗋𝖺𝖼𝗄𝗂𝗇𝗀 𝗒𝗈𝗎𝗋 𝗅𝖾𝖺𝗋𝗇𝗂𝗇𝗀
+            𝗆𝗂𝗅𝖾𝗌𝗍𝗈𝗇𝖾𝗌."
+          </p>
+        </div>
+      </div>
+      <!-- <button class="explore-button">ᴇxᴘʟᴏʀᴇ ᴄᴏᴜʀꜱᴇꜱ</button> -->
+      <a href="courses.html" class="explore-button"><img src="explore.gif" /></a>
+    </section>
+
+    <section id="courses" class="courses">
+      <h2>𝒮𝓉𝒶𝓇𝓉 𝒴𝑜𝓊𝓇 𝒥𝑜𝓊𝓇𝓃𝑒𝓎 𝐻𝑒𝓇𝑒!</h2>
+      <div class="course-grid">
+        <div class="course-card">
+          <img src="course1.jpg" alt="Course 1" class="course-img" />
+          <h3>𝐏𝐞𝐫𝐬𝐨𝐧𝐚𝐥 𝐅𝐢𝐧𝐚𝐧𝐜𝐞 𝐚𝐧𝐝 𝐈𝐧𝐯𝐞𝐬𝐭𝐦𝐞𝐧𝐭</h3>
+        </div>
+        <div class="course-card">
+          <img src="course2.jpg" alt="Course 2" class="course-img" />
+          <h3>𝐏𝐮𝐛𝐥𝐢𝐜 𝐒𝐩𝐞𝐚𝐤𝐢𝐧𝐠 𝐚𝐧𝐝 𝐂𝐨𝐦𝐦𝐮𝐧𝐢𝐜𝐚𝐭𝐢𝐨𝐧</h3>
+        </div>
+        <div class="course-card">
+          <img src="course3.webp" alt="Course 3" class="course-img" />
+          <h3>𝐏𝐫𝐨𝐣𝐞𝐜𝐭 𝐌𝐚𝐧𝐚𝐠𝐞𝐦𝐞𝐧𝐭 𝐅𝐮𝐧𝐝𝐚𝐦𝐞𝐧𝐭𝐚𝐥𝐬</h3>
+        </div>
+        <div class="course-card">
+          <img src="course4.webp" alt="Course 4" class="course-img" />
+          <h3>𝐄𝐧𝐭𝐫𝐞𝐩𝐫𝐞𝐧𝐞𝐮𝐫𝐬𝐡𝐢𝐩 𝐚𝐧𝐝 𝐈𝐧𝐧𝐨𝐯𝐚𝐭𝐢𝐨𝐧</h3>
+        </div>
+        <div class="course-card">
+          <img src="course5.jpg" alt="Course 5" class="course-img" />
+          <h3>𝐌𝐞𝐧𝐭𝐚𝐥 𝐇𝐞𝐚𝐥𝐭𝐡 𝐚𝐧𝐝 𝐄𝐦𝐨𝐭𝐢𝐨𝐧𝐚𝐥 𝐖𝐞𝐥𝐥-𝐛𝐞𝐢𝐧𝐠</h3>
+        </div>
+        <div class="course-card">
+          <img src="course6.jpg" alt="Course 6" class="course-img" />
+          <h3>𝐏𝐡𝐨𝐭𝐨𝐠𝐫𝐚𝐩𝐡𝐲 𝐚𝐧𝐝 𝐕𝐢𝐬𝐮𝐚𝐥 𝐒𝐭𝐨𝐫𝐲𝐭𝐞𝐥𝐥𝐢𝐧𝐠</h3>
+        </div>
+        <div class="course-card">
+          <img src="course7.jpeg" alt="Course 7" class="course-img" />
+          <h3>𝐋𝐚𝐧𝐠𝐮𝐚𝐠𝐞 𝐋𝐞𝐚𝐫𝐧𝐢𝐧𝐠 (𝐞.𝐠., 𝐒𝐩𝐚𝐧𝐢𝐬𝐡, 𝐅𝐫𝐞𝐧𝐜𝐡, 𝐌𝐚𝐧𝐝𝐚𝐫𝐢𝐧)</h3>
+        </div>
+        <div class="course-card">
+          <img src="course8.png" alt="Course 8" class="course-img" />
+          <h3>𝐒𝐮𝐬𝐭𝐚𝐢𝐧𝐚𝐛𝐢𝐥𝐢𝐭𝐲 𝐚𝐧𝐝 𝐄𝐧𝐯𝐢𝐫𝐨𝐧𝐦𝐞𝐧𝐭𝐚𝐥 𝐀𝐰𝐚𝐫𝐞𝐧𝐞𝐬𝐬</h3>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 EmpowerEdu. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      function exploreCourses() {
+        alert("Explore our courses and start learning today!");
+      }
+    </script>
+  </body>
+</html>

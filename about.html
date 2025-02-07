@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>About Us - EmpowerEdu</title>
+    <style>
+      /* Global Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background-color: #433815;
+        color: #ffffff;
+        padding-top: 50px;
+        background-image: url("aboutbg.jpg");
+        background-size: cover;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #d0bb02;
+        color: white;
+        padding-left: 0;
+        padding-right: 10px;
+        padding-bottom: 0;
+        width: 100%;
+        height: 60px;
+        position: fixed; /* Fixed position */
+        top: 0; /* Stick to the top */
+        z-index: 1000;
+      }
+
+      header nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+      }
+
+      .logo img {
+        height: 65px;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        /* gap: 10px; */
+        margin: 0;
+        flex-grow: 1;
+        align-items: center;
+      }
+
+      .nav-links li {
+        flex: 1; /* Ensures equal spacing between links */
+        text-align: center; /* Center aligns each link in its space */
+        width: 100%;
+        line-height: 60px; /* Adjust line height to match the height of the header */
+        height: 60px;
+      }
+
+      .nav-links a {
+        color: rgb(20, 9, 103);
+        text-decoration: none;
+        font-size: 25px;
+        font-weight: bold;
+        transition: color 0.3s;
+        display: block; /* Make the anchor tag block-level to fill the li and allow centering */
+        height: 100%; /* Ensure the anchor fills the li vertically */
+        line-height: 60px;
+      }
+
+      .nav-links a:hover {
+        color: rgb(7, 47, 155);
+      }
+
+      .btn {
+        background: #dfc637;
+        border-radius: 4px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        height: 100%; /* Ensure button fills the li element vertically */
+        line-height: 60px; /* Center text vertically inside the button */
+        display: inline-flex; /* Align the button properly */
+        justify-content: center; /* Center text horizontally */
+        align-items: center; /* Center text vertically */
+        /* margin-left: 20px; */
+      }
+
+      main {
+        padding: 2rem 5%;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-size: 30px;
+        color: rgb(14, 3, 88);
+        font-weight: bold;
+      }
+
+      p {
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        margin-bottom: 30px;
+        font-size: 20px;
+        color: rgb(4, 40, 72);
+        font-weight: 500;
+      }
+
+      section {
+        margin-bottom: 3rem;
+      }
+
+      /* About Us Sections */
+      .about-us {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      ul li {
+        margin-bottom: 5px;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        font-size: 20px;
+        color: rgb(4, 40, 72);
+        font-weight: 500;
+      }
+
+      /* Features Section */
+      .features {
+        display: flex;
+        gap: 2rem;
+        margin-top: 1rem;
+      }
+
+      .feature {
+        flex: 1;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: rgb(5, 2, 41);
+        color: #b19d29;
+        border: none;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 5px;
+        font-weight: bolder;
+      }
+
+      button:hover {
+        background-color: #11139c;
+      }
+
+      footer {
+        background-color: #2c3e50;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        margin-top: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <img src="Logo.gif" alt="EmpowerEdu Logo" />
+        </div>
+        <ul class="nav-links">
+          <li><a href="HomePage.html">ʜᴏᴍᴇ</a></li>
+          <li><a href="courses.html">ᴄᴏᴜʀꜱᴇꜱ</a></li>
+          <li><a href="pricing.html">ᴘʀɪᴄɪɴɢ</a></li>
+          <li><a href="about.html">ᴀʙᴏᴜᴛ ᴜꜱ</a></li>
+          <li><a href="#contact">ᴄᴏɴᴛᴀᴄᴛ</a></li>
+          <li><a href="Login.html" class="btn">ʟᴏɢɪɴ / ꜱɪɢɴᴜᴘ</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="about-us">
+      <section class="intro">
+        <h1>Welcome to EmpowerEdu</h1>
+        <p>
+          At EmpowerEdu, we believe that education is the key to unlocking
+          potential, and our mission is to make learning accessible, engaging,
+          and personalized for everyone.
+        </p>
+      </section>
+
+      <section class="mission">
+        <h2>Our Mission</h2>
+        <p>
+          Our mission is to provide high-quality education to learners of all
+          backgrounds, offering a wide range of courses to help individuals
+          advance in their careers, develop new skills, and achieve their
+          personal learning goals.
+        </p>
+      </section>
+
+      <section class="offerings">
+        <h2>What We Offer</h2>
+        <ul>
+          <li>Web Development</li>
+          <li>Data Science & Machine Learning</li>
+          <li>Cybersecurity & Ethical Hacking</li>
+          <li>Blockchain & Cryptocurrency</li>
+          <li>Business & Marketing</li>
+          <li>Creative Writing</li>
+          <li>Health & Wellness</li>
+          <li>Personal Finance</li>
+        </ul>
+      </section>
+
+      <section class="why-choose">
+        <h2>Why Choose EmpowerEdu?</h2>
+        <div class="features">
+          <div class="feature">
+            <h3>Expert Instructors</h3>
+            <p>
+              Learn from top industry professionals with real-world experience.
+            </p>
+          </div>
+          <div class="feature">
+            <h3>Flexible Learning</h3>
+            <p>Access courses anytime, anywhere, and learn at your own pace.</p>
+          </div>
+          <div class="feature">
+            <h3>Affordable Education</h3>
+            <p>
+              We offer competitive pricing to make education accessible to all.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="vision">
+        <h2>Our Vision</h2>
+        <p>
+          We aim to create a global community of learners who thrive in the
+          digital age by providing them with the tools they need to succeed.
+        </p>
+      </section>
+
+      <section class="cta">
+        <h2>Join the EmpowerEdu Community</h2>
+        <p>
+          You're not just a student—you're part of a community. Let's learn,
+          grow, and achieve together!
+        </p>
+        <button id="join-btn">Join Now</button>
+        <button id="view-members-btn" type="button">
+          <a href="viewMembers.php" style="padding: 10px 20px;
+          background-color: rgb(5, 2, 41);
+          color: #b19d29;
+          border: none;
+          font-size: 1rem;
+          cursor: pointer;
+          border-radius: 5px;
+          font-weight: bolder;
+          text-decoration: none;">View Members</a>
+      </button>
+      
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 EmpowerEdu | All rights reserved</p>
+    </footer>
+
+    <script>
+      document
+        .getElementById("join-btn")
+        .addEventListener("click", function () {
+          alert(
+            "Thank you for wanting to join EmpowerEdu! Please visit our signup page."
+          );
+          window.location.href = "signup.html";
+        });
+    </script>
+  </body>
+</html>
